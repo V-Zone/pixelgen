@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+header {
+    width: 100%;
+    background-color: #34495e;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    background-color: #2c3e50;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    margin-top: 100px;
+}
+
+.color-display {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#colorPicker {
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    background-color: #34495e;
+    transition: all 0.3s;
+    width: 100%;
+    max-width: 300px;
+    margin: 5px 0;
+}
+
+#colorPicker:hover {
+    transform: scale(1.05);
+}
+
+#colorPickerContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px; /* Kis távolságot adunk a gombok és a color picker között */
+}
+
+#toolbar {
+    display: flex;
+    flex-direction: column; /* A gombok egy oszlopban lesznek, de a színválasztó külön helyen */
+    justify-content: center;
+    gap: 10px; /* Csökkentett távolságok */
+    margin-top: 100px;
+    z-index: 5;
+    padding-top: 100px;
+}
+
+#toolsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* A gombok között nagyobb távolság */
+}
+
+.tool {
+    padding: 8px 15px; /* Csökkentve a padding értékét */
+    background-color: #1e90ff;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1rem; /* Csökkentett font-size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.tool:hover {
+    background-color: #4ba4fa;
+    transform: scale(1.05);
+}
+
+.input-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 30px; /* Növeltük a margót, hogy jobban középre kerüljön */
+}
+
+.input-container input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #7f8c8d;
+    background-color: #34495e;
+    color: #ecf0f1;
+    font-size: 1rem;
+    width: 80%;
+    max-width: 300px;
+}
+
+#canvas {
+    display: grid;
+    gap: 2px;
+    margin-top: 30px;
+    border-radius: 10px;
+    border: 2px solid #34495e;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.pixel {
+    width: 35px;
+    height: 35px;
+    background-color: #34495e;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #7f8c8d;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+}
+
+.pixel span {
+    font-size: 12px;
+    color: #ecf0f1;
+}
+
+.settings {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.settings input {
+    margin: 0 5px;
+    padding: 10px;
+    background-color: #34495e;
+    border: 1px solid #7f8c8d;
+    color: #ecf0f1;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.settings button {
+    padding: 10px 15px;
+    background-color: #2980b9;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.settings button:hover {
+    background-color: #3498db;
+    transform: scale(1.05);
+}
+
+#output {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #34495e;
+    color: #ecf0f1;
+    border-radius: 10px;
+    max-width: 100%;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+footer {
+    background-color: #2c3e50;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    color: #bdc3c7;
+}
+
+
+/* Alap stílusok a gombokhoz és inputhoz */
+#myInput {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+#output {
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Üzenet stílusai */
+.copy-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    z-index: 1000;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 1;
+}
+
+/* Az üzenet eltűntetése */
+.copy-message.fade {
+    opacity: 0;
+    transform: translateY(50px);
+}
